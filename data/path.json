@@ -1,0 +1,54 @@
+{
+  "routes": {
+    "/": {
+      "title": "UBAC · Inicio",
+      "path": "public/inicio.html",
+      "description": "Bienvenido a UBAC, identidad digital verificable"
+    },
+    "/login": {
+      "title": "UBAC · Iniciar sesión",
+      "path": "auth/login/index.html",
+      "description": "Accede a tu identidad UBAC"
+    },
+    "/sign": {
+      "title": "UBAC · Crear identidad",
+      "path": "auth/sign/index.html",
+      "description": "Regístrate en UBAC"
+    },
+    "/dashboard": {
+      "title": "UBAC · Panel",
+      "path": "app/dashboard/index.html",
+      "description": "Gestiona tu identidad digital"
+    },
+    "/profile": {
+      "title": "UBAC · Perfil",
+      "path": "app/profile/index.html",
+      "description": "Tu perfil público"
+    },
+    "/identity": {
+      "title": "UBAC · Identidad",
+      "path": "app/identity/index.html",
+      "description": "Verifica tu hash VUB"
+    },
+    "/periodico": {
+      "title": "UBAC · Periódico",
+      "path": "public/periodico/index.html",
+      "description": "Periódico digital de UBAC"
+    },
+    "/propuestas": {
+      "title": "UBAC · Propuestas",
+      "path": "public/propuestas/index.html",
+      "description": "Propuestas ciudadanas"
+    },
+    "/ciudadanos": {
+      "title": "UBAC · Ciudadanos",
+      "path": "public/ciudadanos/index.html",
+      "description": "Lista de identidades UBAC"
+    },
+    "/recover": {
+      "title": "UBAC · Recuperar",
+      "path": "auth/recover/index.html",
+      "description": "Recupera tu identidad"
+    }
+  }
+}

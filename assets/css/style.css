@@ -1,0 +1,207 @@
+/*!
+ * UPrise v1.0
+ * Librería de estilo UBAC
+ * Basada en el periódico digital original
+ * Licencia: VUB-25
+ */
+
+/* ============================================
+   RESET Y VARIABLES
+   ============================================ */
+
+:root {
+  --up-papel: #fffef7;
+  --up-tinta: #1a1a1a;
+  --up-tinta-suave: #444;
+  --up-tinta-leve: #888;
+  --up-raya: #ddd;
+  --up-fondo: #e8e5df;
+  --up-vive: #b33;
+  --up-menosvive: #2e7d32;
+  --up-mono: 'Courier New', 'Fira Code', monospace;
+  --up-serif: 'Georgia', 'Times New Roman', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--up-serif);
+  background: var(--up-fondo);
+  color: var(--up-tinta);
+  line-height: 1.5;
+  padding: 40px 20px;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.up-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--up-papel);
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   TIPOGRAFÍA (estilo periódico)
+   ============================================ */
+
+.up-titulo {
+  text-align: center;
+  font-size: 56px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.up-subtitulo {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--up-tinta-leve);
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--up-raya);
+}
+
+.up-fecha {
+  text-align: center;
+  font-size: 12px;
+  color: var(--up-tinta-leve);
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   ARTÍCULOS / TARJETAS
+   ============================================ */
+
+.up-articulo {
+  margin-bottom: 45px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid var(--up-raya);
+}
+
+.up-articulo:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.up-articulo-titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--up-tinta);
+}
+
+.up-articulo-texto {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--up-tinta-suave);
+  margin-bottom: 12px;
+}
+
+.up-articulo-firma {
+  font-style: italic;
+  color: var(--up-tinta-leve);
+  font-size: 13px;
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+
+.up-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid var(--up-raya);
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--up-papel);
+}
+
+.up-input:focus {
+  outline: none;
+  border-color: var(--up-tinta);
+}
+
+.up-boton {
+  width: 100%;
+  padding: 12px;
+  background: var(--up-tinta);
+  color: white;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+
+.up-boton:hover {
+  background: #2c2c2c;
+}
+
+/* ============================================
+   CÓDIGO / HASH (estilo máquina de escribir)
+   ============================================ */
+
+.up-codigo {
+  font-family: var(--up-mono);
+  font-size: 11px;
+  background: #f4f4f4;
+  padding: 12px;
+  margin: 15px 0;
+  word-break: break-all;
+  border-left: 3px solid var(--up-vive);
+}
+
+/* ============================================
+   MENSAJES
+   ============================================ */
+
+.up-error {
+  color: var(--up-vive);
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.up-exito {
+  color: var(--up-menosvive);
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* ============================================
+   ENLACES
+   ============================================ */
+
+.up-enlace {
+  color: var(--up-tinta);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--up-raya);
+}
+
+.up-enlace:hover {
+  border-bottom-color: var(--up-tinta);
+}
+
+/* ============================================
+   SEPARADOR
+   ============================================ */
+
+.up-separador {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--up-raya), var(--up-raya) 10px, transparent 10px, transparent 20px);
+  margin: 30px 0;
+}
