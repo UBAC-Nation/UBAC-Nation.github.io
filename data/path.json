@@ -1,4 +1,8 @@
 {
+  "assets": {
+    "css": "/uprise.css",
+    "api": "/api/index.js"
+  },
   "routes": {
     "/": {
       "title": "UBAC · Inicio",
