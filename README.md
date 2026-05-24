@@ -2,7 +2,7 @@
 
 > Salido de una cabeza pensante, que una vez pensó que podria vivir sin tierra, en un mundo tan basto extendido al horizonte, la mente pensante se materializa en una simple idea, la idea de conquistar sin cadenas, la idea de no tratar como esclavo, la libertad de una persona no depende de su amo.
 
-UBAC es un pais digital que no lleva una frontera consigo, no la necesita, alfinal, pronto se acabaran, y que tal si una mente pensante a imaginado un mundo sin una frontera de agua, de tierra, de terrreno, tecnicamente es posible basandote en una sola cosa: "Union"
+UBAC es un pais digital que no lleva una frontera consigo, no la necesita, alfinal, pronto se acabaran, y que tal si una mente pensante a imaginado un mundo sin una frontera de agua, de tierra, de terrreno, tecnicamente es posible basandote en una sola cosa: "Union".
 
 ## Sobre UBAC
 
