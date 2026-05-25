@@ -3,56 +3,64 @@
     "css": "/uprise.css",
     "api": "/api/index.js"
   },
+  "data": {
+    "periodico": "/data/periodico.json",
+    "propuestas": "/data/propuestas.json",
+    "ciudadanos": "/data/ciudadanos.json",
+    "categorias": "/data/categorias.json"
+  },
+  "pages": {
+    "inicio": "/public/inicio.html",
+    "periodico": "/public/periodico/index.html",
+    "propuestas": "/public/propuestas/index.html",
+    "ciudadanos": "/public/ciudadanos/index.html",
+    "login": "/auth/login/index.html",
+    "sign": "/auth/sign/index.html",
+    "recover": "/auth/recover/index.html",
+    "dashboard": "/app/dashboard/index.html",
+    "profile": "/app/profile/index.html",
+    "identity": "/app/identity/index.html"
+  },
   "routes": {
     "/": {
       "title": "UBAC · Inicio",
-      "path": "public/inicio.html",
-      "description": "Bienvenido a UBAC, identidad digital verificable"
+      "page": "inicio"
     },
     "/login": {
       "title": "UBAC · Iniciar sesión",
-      "path": "auth/login/index.html",
-      "description": "Accede a tu identidad UBAC"
+      "page": "login"
     },
     "/sign": {
       "title": "UBAC · Crear identidad",
-      "path": "auth/sign/index.html",
-      "description": "Regístrate en UBAC"
+      "page": "sign"
     },
     "/dashboard": {
       "title": "UBAC · Panel",
-      "path": "app/dashboard/index.html",
-      "description": "Gestiona tu identidad digital"
+      "page": "dashboard"
     },
     "/profile": {
       "title": "UBAC · Perfil",
-      "path": "app/profile/index.html",
-      "description": "Tu perfil público"
+      "page": "profile"
     },
     "/identity": {
       "title": "UBAC · Identidad",
-      "path": "app/identity/index.html",
-      "description": "Verifica tu hash VUB"
+      "page": "identity"
     },
     "/periodico": {
       "title": "UBAC · Periódico",
-      "path": "public/periodico/index.html",
-      "description": "Periódico digital de UBAC"
+      "page": "periodico"
     },
     "/propuestas": {
       "title": "UBAC · Propuestas",
-      "path": "public/propuestas/index.html",
-      "description": "Propuestas ciudadanas"
+      "page": "propuestas"
     },
     "/ciudadanos": {
       "title": "UBAC · Ciudadanos",
-      "path": "public/ciudadanos/index.html",
-      "description": "Lista de identidades UBAC"
+      "page": "ciudadanos"
     },
     "/recover": {
       "title": "UBAC · Recuperar",
-      "path": "auth/recover/index.html",
-      "description": "Recupera tu identidad"
+      "page": "recover"
     }
   }
 }
