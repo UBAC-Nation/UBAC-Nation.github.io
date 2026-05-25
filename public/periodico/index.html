@@ -3,69 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title id="pageTitle">UBAC · Identidad Digital</title>
-    <link rel="stylesheet" href="/uprise.css">
+    <title>UBAC · Periódico Digital</title>
     <style>
-        body { margin: 0; padding: 0; background: #e8e5df; }
-        iframe { width: 100%; height: 100vh; border: none; display: block; }
-        .cargando {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Georgia', serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #e8e5df;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             background: #fffef7;
-            padding: 20px 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            z-index: 9999;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 56px;
+            letter-spacing: 4px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px double #ccc;
+        }
+
+        .article {
+            margin-bottom: 45px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .article-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .article-date {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+
+        .article-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .article-text a {
+            color: #1a1a2e;
+            text-decoration: none;
+            border-bottom: 1px solid #1a1a2e;
+        }
+
+        .article-text a:hover {
+            color: #e94560;
+            border-bottom-color: #e94560;
+        }
+
+        .article-author {
+            font-style: italic;
+            color: #999;
+            font-size: 13px;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            border-top: 1px solid #e0ddd5;
         }
     </style>
 </head>
 <body>
-    <div id="cargando" class="cargando">Cargando UBAC...</div>
-    <iframe id="contenidoFrame" src="" style="display:none;"></iframe>
+    <div class="container">
+        <h1>UBAC</h1>
+        <div class="subtitle">Periódico Digital</div>
+
+        <div id="articulos"></div>
+
+        <footer>
+            UBAC no tiene dueño. UBAC tiene ciudadanos.<br>
+            El pueblo es su presidente, su guía y su cultura.
+        </footer>
+    </div>
 
     <script>
-        let pathData = null;
-
-        async function cargarPath() {
-            const res = await fetch('/data/path.json');
-            pathData = await res.json();
-            
-            // Cargar el script de la API dinámicamente
-            if (pathData.api) {
-                const script = document.createElement('script');
-                script.src = pathData.api;
-                document.head.appendChild(script);
-            }
-            
-            manejarRuta();
+        function formatearFecha(arr) {
+            if (!arr || arr.length !== 3) return 'Fecha desconocida';
+            const [dia, mes, anio] = arr;
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            return `${dia} de ${meses[mes - 1]} de ${anio}`;
         }
 
-        function manejarRuta() {
-            const rutaActual = window.location.pathname;
-            const ruta = pathData.routes[rutaActual];
-
-            if (ruta) {
-                document.getElementById('pageTitle').textContent = ruta.title;
-                const iframe = document.getElementById('contenidoFrame');
-                const cargando = document.getElementById('cargando');
+        async function cargarPeriodico() {
+            const contenedor = document.getElementById('articulos');
+            contenedor.innerHTML = '<p style="text-align:center; color:#999;">Cargando periódico...</p>';
+            
+            try {
+                const respuesta = await fetch('/data/periodico.json');
+                if (!respuesta.ok) throw new Error('No se pudo cargar el periódico');
                 
-                iframe.src = ruta.path;
-                iframe.onload = () => {
-                    cargando.style.display = 'none';
-                    iframe.style.display = 'block';
-                };
-            } else {
-                document.getElementById('pageTitle').textContent = 'UBAC · 404';
-                document.getElementById('contenidoFrame').src = '/404.html';
-                document.getElementById('cargando').style.display = 'none';
-                document.getElementById('contenidoFrame').style.display = 'block';
+                const datos = await respuesta.json();
+                
+                if (!datos.periodico || datos.periodico.length === 0) {
+                    contenedor.innerHTML = '<p style="text-align:center; color:#999;">No hay artículos publicados.</p>';
+                    return;
+                }
+                
+                contenedor.innerHTML = '';
+                
+                datos.periodico.forEach(articulo => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.className = 'article';
+                    
+                    const fechaTexto = formatearFecha(articulo.fecha);
+                    
+                    articleDiv.innerHTML = `
+                        <div class="article-title">${articulo.title}</div>
+                        <div class="article-date">${fechaTexto}</div>
+                        <div class="article-text">${articulo.text}</div>
+                        <div class="article-author">— ${articulo.autors}</div>
+                    `;
+                    
+                    contenedor.appendChild(articleDiv);
+                });
+                
+            } catch (error) {
+                console.error('Error:', error);
+                contenedor.innerHTML = '<p style="text-align:center; color:#999;">No se pudo cargar el periódico. Asegúrate de que el archivo existe.</p>';
             }
         }
-
-        window.addEventListener('popstate', manejarRuta);
-        cargarPath();
+        
+        cargarPeriodico();
     </script>
 </body>
 </html>

@@ -1,9 +1,16 @@
 {
   "periodico": [
     {
+      "title": "Primera empresa",
+      "text": "El primer empresario, Aaron, a creado su empresa que esta consiguiendo empleados <a>Inscribirse en el trabajo para la explotacion laboral</a>.",
+      "autors": "Managers",
+      "fecha": [25,5,2026]
+    },
+    {
       "title": "Un Buen Inicio",
       "text": "Yo y otras personas hemos empezado un país, no un pais cualquiera, un pais digital, que se rige por si mismo y decide a donde va. El pueblo es su presidente, su guía y su cultura. Esto apenas es una idea, pero como se ve, en esta página, se va materializando y formando.",
-      "autors": "Fundadores"
+      "autors": "Fundadores",
+      "fecha": [4,5,]
     }
   ]
 }
